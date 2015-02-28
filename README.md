@@ -1,4 +1,4 @@
 # Gulp_starter
-Gulp starterfiles
-gulpfile.js
+**Gulp starterfiles**	
+gulpfile.js		
 package.json
