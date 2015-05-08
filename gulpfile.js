@@ -7,6 +7,12 @@ var plumber = require('gulp-plumber');
 var notify = require("gulp-notify");
 var beeper = require('beeper');
 
+// Error Helper
+function onError(err) {
+    beeper();
+    console.log(err);
+}
+
 // browser-sync task for starting the server.
 gulp.task('browser-sync', function() {
     browserSync({
@@ -18,7 +24,9 @@ gulp.task('browser-sync', function() {
 // will auto-update browsers
 gulp.task('sass', function () {
     return gulp.src('scss/**/*.scss')
-        .pipe(plumber())
+        .pipe(plumber({
+            errorHandler: onError
+        }))
         .pipe(sass())
         .pipe(notify("Hello Gulp!!"))
         .pipe(autoprefixer('last 2 versions'))
