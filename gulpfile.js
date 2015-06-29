@@ -17,7 +17,7 @@ function onError(err) {
 // browser-sync task for starting the server.
 gulp.task('browser-sync', function() {
     browserSync({
-        proxy: "site.dev"
+        proxy: "mydevsite.dev"
     });
 });
 
